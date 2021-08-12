@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ui.Lvl.Buttons
+namespace Ui.Lvl
 {
     public class SwipeBottles : MonoBehaviour
     {

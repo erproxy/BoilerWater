@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560009667372799581}
   - component: {fileID: 560009667372799580}
+  - component: {fileID: 2812797813103110357}
   m_Layer: 0
   m_Name: Bottle2
   m_TagString: Untagged
@@ -254,13 +255,14 @@ Transform:
   m_GameObject: {fileID: 560009667372799579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 560009666238043898}
   - {fileID: 560009666906905574}
   - {fileID: 560009667754284071}
   - {fileID: 560009667252089113}
   - {fileID: 560009666571673320}
+  - {fileID: 9089887468699380050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,6 +318,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2812797813103110357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560009667372799579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b099302f670e42e2b336f346fe5c2a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkCountPos: {fileID: 9089887468699380050}
+  _rangeCounting: 3.04
+  _whatIsSolid:
+    serializedVersion: 2
+    m_Bits: 128
+  _fluidsInBottle: {fileID: 11400000, guid: bd35c75c3424c314dac1c6b21c6b9090, type: 2}
 --- !u!1 &560009667754284070
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,3 +393,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.4693074, y: 0.3574462}
   m_EdgeRadius: 0
+--- !u!1 &7063963994723826889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9089887468699380050}
+  m_Layer: 0
+  m_Name: CountRadius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9089887468699380050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063963994723826889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 560009667372799581}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

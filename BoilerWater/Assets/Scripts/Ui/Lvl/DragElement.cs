@@ -3,109 +3,108 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
-
-    [SerializeField] private Sprite _mainImage;
-    
-    private Transform _transformSelf;
-    private RectTransform _rectTransform;
-    public Canvas Canvas;
-
-
-    private void Start()
+namespace Ui.Lvl
+{
+    public class DragElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        _rectTransform = GetComponent<RectTransform>();
-        _transformSelf = transform;
-    }
 
-    /// <summary>
-    /// Материал, применяемый к объектам на сцене
-    /// </summary>
-    public Sprite MainImage
-    {
-        get { return _mainImage; }
-        set
+        [SerializeField] private Sprite _mainImage;
+        public Canvas Canvas;
+        public GameObject _prefab;
+        
+        private Transform _transformSelf;
+        private RectTransform _rectTransform;
+        private CanvasGroup _canvasGroup;
+
+        private void Start()
         {
-            if (value != null)
+            _rectTransform = GetComponent<RectTransform>();
+            _transformSelf = transform;
+            _canvasGroup= GetComponent<CanvasGroup>();
+        }
+
+        private Transform defaultParentTransform;
+
+        
+        
+        /// <summary>
+        /// Трансформ объекта, к которому прикреплена кнопка
+        /// </summary>
+        public Transform DefaultParentTransform
+        {
+            get { return defaultParentTransform; }
+            set
             {
-                _mainImage = value;
+                if (value != null)
+                {
+                    defaultParentTransform = value;
+                }
             }
         }
-    }
 
-    private Transform defaultParentTransform;
-    /// <summary>
-    /// Трансформ объекта, к которому прикреплена кнопка
-    /// </summary>
-    public Transform DefaultParentTransform
-    {
-        get { return defaultParentTransform; }
-        set
+        private Transform dragParentTransform;
+
+        /// <summary>
+        /// Трансформ объекта, к которому прикрепляется кнопка во время драга
+        /// </summary>
+        public Transform DragParentTransform
         {
-            if (value != null)
+            get { return dragParentTransform; }
+            set
             {
-                defaultParentTransform = value;
+                if (value != null)
+                    dragParentTransform = value;
             }
         }
-    }
 
-    private Transform dragParentTransform;
-    /// <summary>
-    /// Трансформ объекта, к которому прикрепляется кнопка во время драга
-    /// </summary>
-    public Transform DragParentTransform
-    {
-        get
+        private int siblingIndex;
+        private IDropHandler dropHandlerImplementation;
+
+        /// <summary>
+        /// Номер индекса внутри родительского объекта
+        /// </summary>
+        public int SiblingIndex
         {
-            return dragParentTransform;
+            get { return siblingIndex; }
+            set
+            {
+                if (value > 0)
+                    siblingIndex = value;
+            }
         }
-        set
+
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            if (value != null)
-                dragParentTransform = value;
+            _transformSelf.SetParent(DragParentTransform);
+            _canvasGroup.alpha = .6f;
+            _canvasGroup.blocksRaycasts = false;
         }
-    }
 
-    private int siblingIndex;
-    /// <summary>
-    /// Номер индекса внутри родительского объекта
-    /// </summary>
-    public int SiblingIndex
-    {
-        get { return siblingIndex; }
-        set
+        public void OnDrag(PointerEventData eventData)
         {
-            if (value > 0)
-                siblingIndex = value;
+            _rectTransform.anchoredPosition += eventData.delta / Canvas.scaleFactor;
+            // transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            //возвращаем обратно в контент элемент
+            transform.SetParent(DefaultParentTransform);
+            transform.SetSiblingIndex(SiblingIndex);
+            
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.blocksRaycasts = true;
+
+            // //создаем луч и хит
+            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // RaycastHit hit;
+
+            // //пускаем луч и меняем материал у встреченного объекта
+            // if (Physics.Raycast(ray, out hit))
+            // {
+            //     hit.collider.gameObject.GetComponent<Renderer>().material = mainMaterial;
+            // }
+        }
+
     }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        _transformSelf.SetParent(DragParentTransform);
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        _rectTransform.anchoredPosition += eventData.delta / Canvas.scaleFactor;
-        // transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        //возвращаем обратно в контент элемент
-        transform.SetParent(DefaultParentTransform);
-        transform.SetSiblingIndex(SiblingIndex);
-
-        // //создаем луч и хит
-        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        // RaycastHit hit;
-
-        // //пускаем луч и меняем материал у встреченного объекта
-        // if (Physics.Raycast(ray, out hit))
-        // {
-        //     hit.collider.gameObject.GetComponent<Renderer>().material = mainMaterial;
-        // }
-    }
-
 }
