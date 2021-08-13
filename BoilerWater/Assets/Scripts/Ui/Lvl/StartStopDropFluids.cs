@@ -35,7 +35,7 @@ namespace Ui.Lvl
 
         public void OnStop()
         {
-            StopWatterDrop(_gameCore);
+            StopWatterDrop?.Invoke(_gameCore);
             _barrier1.SetActive(true);
             _barrier2.SetActive(true);
             _stopB.SetActive(false);

@@ -8,13 +8,16 @@ using Ui.Lvl;
 namespace Bottle
 {
     public class FluidCount : MonoBehaviour
-    {
+    {   
+        [Header("Counting Fluids")]
         [SerializeField] private Transform _checkCountPos;
         [SerializeField] private float _rangeCounting;
         [SerializeField] private LayerMask _whatIsSolid;
 
+        [Header("Data")]
         [SerializeField] private FluidsInBottle _fluidsInBottle;
         
+
         private float _percentFullness;
         private List<Collider2D> _fluidList = new List<Collider2D>();
 
@@ -31,7 +34,8 @@ namespace Bottle
 
         private void StopWatterDrop(GameCore gameCore)
         {
-            StopWaterDrop(_percentFullness);
+            StopWaterDrop?.Invoke(_percentFullness);
+            _startStopDropFluids.StopWatterDrop -= StopWatterDrop;
         }
 
         public float PercentFullness()
@@ -77,7 +81,7 @@ namespace Bottle
             //Создал ивент, если игрок перелил необходимое количество
             if (_percentFullness > 100)
             {
-                PouredWater(_percentFullness);
+                PouredWater?.Invoke(_percentFullness);
             }
         }
         //хитбокс

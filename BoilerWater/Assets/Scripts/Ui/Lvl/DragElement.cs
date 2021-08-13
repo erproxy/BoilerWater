@@ -8,7 +8,6 @@ namespace Ui.Lvl
     public class DragElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
 
-        [SerializeField] private Sprite _mainImage;
         public Canvas Canvas;
         public GameObject _prefab;
         
@@ -89,8 +88,9 @@ namespace Ui.Lvl
         public void OnEndDrag(PointerEventData eventData)
         {
             //возвращаем обратно в контент элемент
-            transform.SetParent(DefaultParentTransform);
-            transform.SetSiblingIndex(SiblingIndex);
+            _transformSelf.SetParent(DefaultParentTransform);
+            _transformSelf.SetSiblingIndex(SiblingIndex);
+             
             
             _canvasGroup.alpha = 1f;
             _canvasGroup.blocksRaycasts = true;

@@ -35,7 +35,8 @@ namespace Ui.Lvl
             {
                 _prefab = eventData.pointerDrag.GetComponent<DragElement>()._prefab;
 
-                PrefabCreate(Instantiate(_prefab, _cashTransform.position, Quaternion.identity).GetComponent<FluidCount>());
+                var GO = Instantiate(_prefab, _cashTransform.position, Quaternion.identity).GetComponent<FluidCount>();
+                PrefabCreate?.Invoke(GO);
                 _animatorScrollBottles.SetBool("Hidden", true);
 
                 _startButton.SetActive(true);

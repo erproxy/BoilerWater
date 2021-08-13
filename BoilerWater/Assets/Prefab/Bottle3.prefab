@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220460033593384527}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CountingRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8344445793622277351}
   - component: {fileID: 8344445793622277350}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8344445793681727587}
   - component: {fileID: 8344445793681727586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8344445793951369066}
   - component: {fileID: 8344445793951369065}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,9 +212,10 @@ GameObject:
   - component: {fileID: 8344445794669919407}
   - component: {fileID: 8344445794669919400}
   - component: {fileID: 7108174756959092983}
-  m_Layer: 0
+  - component: {fileID: -922986271835358220}
+  m_Layer: 11
   m_Name: Bottle3
-  m_TagString: Untagged
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,3 +308,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _fluidsInBottle: {fileID: 11400000, guid: 537c27f00ebd46644928a1a44e4be0e8, type: 2}
+--- !u!61 &-922986271835358220
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8344445794669919401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 6.43}
+    newSize: {x: 9.09, y: 9.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 6.43}
+  m_EdgeRadius: 0

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8078009420735060228}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CheckFluids
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,9 +41,10 @@ GameObject:
   - component: {fileID: 767049145996465393}
   - component: {fileID: 767049145996465394}
   - component: {fileID: 6570710891676652079}
-  m_Layer: 0
+  - component: {fileID: -3574504405316837616}
+  m_Layer: 11
   m_Name: Bottle1
-  m_TagString: Untagged
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +137,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _fluidsInBottle: {fileID: 11400000, guid: aa52ee198ef2c4143ba6f7d43af2534d, type: 2}
+--- !u!61 &-3574504405316837616
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767049145996465395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.143908, y: -3.793721}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.09, y: 9.09}
+    newSize: {x: 9.09, y: 9.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.7903748, y: 1.5025582}
+  m_EdgeRadius: 0
 --- !u!1 &767049146049561168
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767049146049561175}
   - component: {fileID: 767049146049561174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767049146225024626}
   - component: {fileID: 767049146225024625}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767049146343076480}
   - component: {fileID: 767049146343076487}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
