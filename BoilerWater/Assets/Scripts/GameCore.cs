@@ -20,6 +20,7 @@ namespace Core
         
         
         [SerializeField] private Animator _animatorScrollBottle;
+        [SerializeField] private GameObject _handPut;
         [SerializeField] private GameObject _curtain;
         [SerializeField] private GameObject _resetPanel;
         private  List<GameObject> _fluids = new List<GameObject>();
@@ -42,6 +43,8 @@ namespace Core
         public void OnResetLvl()
         {
             _curtain.SetActive(true);
+          _handPut.SetActive(true);
+            _barrier1.SetActive(true);
             for (int i = 0; i < _fluids.Count; i++)
             {
                 _fluids[i].transform.position = _fluidsDefaultPos[i];
@@ -64,6 +67,7 @@ namespace Core
 
         private void StopWaterDrop(float persentFullnes)
         {
+            
             _ScoreBoard.SetActive(true);
             var TMP = _ScoreBoard.GetComponent<Text>();
             TMP.text = "asdf";
@@ -89,7 +93,7 @@ namespace Core
         private void PouredWater(float persentFullnes)
         {
             _stopB.SetActive(false);
-            _barrier1.SetActive(false);
+            _barrier1.SetActive(true);
             _handEnd.SetActive(true);
             Debug.Log("U loss: " + persentFullnes);
             

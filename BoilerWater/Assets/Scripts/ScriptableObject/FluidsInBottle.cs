@@ -6,7 +6,7 @@
     {
         
         [SerializeField] private int maxFluids;
-        public int MaxFluids
+        public float MaxFluids
         {
             get
             {

@@ -67,16 +67,18 @@ namespace Bottle
                         _fluidList.Add(enemies[i]);
                     }
                 }
-             //   Debug.Log(_fluidList.Count);
+                         
+               //   Debug.Log("счетчик "+_fluidList.Count);     
             }
+      
             
-            return _percentFullness = (_fluidsInBottle.MaxFluids / 100f)*_fluidList.Count;
+            return _percentFullness = (_fluidList.Count/_fluidsInBottle.MaxFluids)*100f;
         }
 
         private void Update()
         {
             PercentFullness();
-            //Debug.Log(_percentFullness);
+           // Debug.Log(_percentFullness);
             
             //Создал ивент, если игрок перелил необходимое количество
             if (_percentFullness > 100)
